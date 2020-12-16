@@ -1,0 +1,154 @@
+@import '../../scss/basics/variables';
+
+.projects-list {
+    background-color: $color-grey-light-1;
+    padding: 15rem 0;
+    margin-top: -15rem;
+
+    .project {
+        perspective: 150rem;
+        -moz-perspective: 150rem; // for firefox browser
+        position: relative;
+        height: 55rem;
+        width: 30rem;
+        cursor: pointer;
+
+        &__side {
+            color: white;
+            height: 55rem;
+            transition: all .8s ease;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            backface-visibility: hidden; // hide the back of element
+            border-radius: 3px;
+            box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+            overflow: hidden;
+        }
+
+        &__front {
+            background-color: $color-white;
+        }
+
+        &__desc {
+            padding: 3rem;
+            color: $color-black;
+
+            h5 {
+                font-size: $default-font-size;
+                color: $color-grey-dark;
+                text-align: center;
+                padding: 3px;
+
+            }
+        }
+
+        &__back {
+            transform: rotateY(180deg);
+
+            &--1 {
+                background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+            }
+
+            &--2 {
+                background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+
+            }
+
+            &--3 {
+                background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+
+            }
+        }
+
+        &:hover .project__front {
+            transform: rotateY(-180deg);
+        }
+
+        &:hover .project__back {
+            transform: rotateY(0);
+        }
+
+        &__img {
+            background-size: cover;
+            height: 23rem;
+            background-blend-mode: screen;
+            -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); // for all browsers
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+
+            &--1 {
+                background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark),
+                    url('../../assets/img/projs/slack-clone.png');
+            }
+
+            &--2 {
+                background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark),
+                    url('../../assets/img/projs/rcrentals.png');
+            }
+
+            &--3 {
+                background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark),
+                    url('../../assets/img/projs/adi-clothing-store.png');
+            }
+        }
+
+        &__heading {
+            font-size: 2.8rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            text-align: right;
+            color: $color-white;
+            position: absolute;
+            top: 12rem;
+            right: 2rem;
+            width: 75%;
+            margin-top: -4.5rem;
+        }
+
+        &__heading {
+            padding: 1rem 1.5rem;
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone; // for chrome to work
+
+            &--1 {
+                background-image: linear-gradient(to right bottom,
+                        rgba($color-primary-light, .60), rgba($color-primary-dark, .60));
+            }
+
+            &--2 {
+                background-image: linear-gradient(to right bottom,
+                        rgba($color-secondary-light, .60), rgba($color-secondary-dark, .60));
+            }
+
+            &--3 {
+                background-image: linear-gradient(to right bottom,
+                        rgba($color-tertiary-light, .60), rgba($color-tertiary-dark, .60));
+            }
+        }
+
+        a {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        &__list {
+            :not(:last-child) {
+                border-bottom: 1px solid #eee;
+            }
+        }
+
+        &__item {
+            text-align: center;
+            font-size: 1.5rem;
+            padding: 1rem;
+            color: black;
+
+
+        }
+    }
+}
